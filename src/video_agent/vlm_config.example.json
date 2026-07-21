@@ -1,0 +1,22 @@
+{
+  "mode": "manual",
+  "provider": null,
+  "vlm_provider": null,
+  "audio_provider": null,
+  "gemini_vlm_model": "gemini-2.5-flash",
+  "gemini_text_model": "gemini-2.5-flash",
+  "model": "",
+  "input_policy": {
+    "use_motion_grid": true,
+    "use_motion_composite": true,
+    "use_selected_frames": true,
+    "use_transcript": true,
+    "max_frames_per_segment": 6
+  },
+  "output_policy": {
+    "require_json": true,
+    "include_confidence": true,
+    "include_uncertainties": true,
+    "no_hallucination": true
+  }
+}

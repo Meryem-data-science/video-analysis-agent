@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "name": "video-agent-synthetic-demo",
+  "description": "Vidéo verticale synthétique déterministe, sans média externe.",
+  "license": "CC0-1.0",
+  "provenance": "Générée localement par video_agent.demo",
+  "videos": [
+    {
+      "video_id": "synthetic-vertical-v1",
+      "path": "videos/video_agent_demo.mp4",
+      "annotations": "annotations/demo_annotations.json",
+      "generated_by": "video_agent.demo",
+      "generator_version": "1.0",
+      "generator_spec_sha256": "81fbdf9fc4e2f19d88994aeb51e526ef1f65ddca698192784d6c14206b4ffa1b"
+    }
+  ]
+}

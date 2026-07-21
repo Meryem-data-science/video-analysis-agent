@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "fixture_type": "simulated_vlm_demo",
+  "simulated": true,
+  "provider": null,
+  "model": null,
+  "generator_spec_sha256": "81fbdf9fc4e2f19d88994aeb51e526ef1f65ddca698192784d6c14206b4ffa1b",
+  "notice": "Fixtures synthétiques écrites à la main. Elles ne proviennent pas d'un modèle.",
+  "results": [
+    {
+      "segment_id": 1,
+      "start_s": 0.0,
+      "end_s": 6.0,
+      "combined_text": "",
+      "scene_description": "Un cercle orange animé traverse horizontalement un fond bleu.",
+      "people_objects": ["cercle orange", "fond bleu"],
+      "actions": ["se déplacer horizontalement"],
+      "motion_description": "Le cercle progresse de gauche à droite avec une légère oscillation.",
+      "audio_visual_relation": "Aucune piste audio ; la scène est uniquement visuelle.",
+      "uses_speech": false,
+      "mood": ["dynamique", "pédagogique"],
+      "texte_ecran": [
+        {"text": "CERCLE EN MOUVEMENT", "lang": "fr", "location": "bas"}
+      ],
+      "confidence": 1.0,
+      "uncertainties": [],
+      "evidence": {"visual": ["formes synthétiques générées"], "audio": []}
+    },
+    {
+      "segment_id": 2,
+      "start_s": 6.0,
+      "end_s": 12.0,
+      "combined_text": "",
+      "scene_description": "Un carré bleu descend en oscillant sur un fond corail.",
+      "people_objects": ["carré bleu", "fond corail"],
+      "actions": ["descendre", "osciller"],
+      "motion_description": "Le carré suit une trajectoire verticale avec un mouvement latéral.",
+      "audio_visual_relation": "Aucune piste audio ; la scène est uniquement visuelle.",
+      "uses_speech": false,
+      "mood": ["rythmé", "ludique"],
+      "texte_ecran": [
+        {"text": "CARRE EN DESCENTE", "lang": "fr", "location": "bas"}
+      ],
+      "confidence": 1.0,
+      "uncertainties": [],
+      "evidence": {"visual": ["formes synthétiques générées"], "audio": []}
+    },
+    {
+      "segment_id": 3,
+      "start_s": 12.0,
+      "end_s": 18.0,
+      "combined_text": "",
+      "scene_description": "Un triangle vert tourne et change de taille sur un fond sombre.",
+      "people_objects": ["triangle vert", "fond sombre"],
+      "actions": ["tourner", "changer de taille"],
+      "motion_description": "Le triangle effectue une rotation lente et une pulsation.",
+      "audio_visual_relation": "Aucune piste audio ; la scène est uniquement visuelle.",
+      "uses_speech": false,
+      "mood": ["calme", "conclusif"],
+      "texte_ecran": [
+        {"text": "TRIANGLE FINAL", "lang": "fr", "location": "bas"}
+      ],
+      "confidence": 1.0,
+      "uncertainties": [],
+      "evidence": {"visual": ["formes synthétiques générées"], "audio": []}
+    }
+  ]
+}

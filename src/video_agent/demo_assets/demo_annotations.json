@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "dataset_name": "video-agent-synthetic-demo",
+  "video_id": "synthetic-vertical-v1",
+  "video_sha256": "4a8bd0da3d53541981b6fef75bf91fa1e24dfb7f890c5e89f16f9cd85ad49fe3",
+  "generator_spec_sha256": "81fbdf9fc4e2f19d88994aeb51e526ef1f65ddca698192784d6c14206b4ffa1b",
+  "expected_duration_s": 18.0,
+  "synthetic": true,
+  "license": "CC0-1.0",
+  "provenance": "Annotation de référence du scénario synthétique v1.",
+  "scenes": [
+    {"segment_id": 1, "start_s": 0.0, "end_s": 6.0, "description": "Un cercle orange se déplace horizontalement sur un fond bleu.", "texts": ["CERCLE EN MOUVEMENT"], "objects": ["cercle orange", "fond bleu"], "actions": ["se déplacer horizontalement"]},
+    {"segment_id": 2, "start_s": 6.0, "end_s": 12.0, "description": "Un carré bleu descend et oscille sur un fond corail.", "texts": ["CARRE EN DESCENTE"], "objects": ["carré bleu", "fond corail"], "actions": ["descendre", "osciller"]},
+    {"segment_id": 3, "start_s": 12.0, "end_s": 18.0, "description": "Un triangle vert tourne et change de taille sur un fond sombre.", "texts": ["TRIANGLE FINAL"], "objects": ["triangle vert", "fond sombre"], "actions": ["tourner", "changer de taille"]}
+  ]
+}

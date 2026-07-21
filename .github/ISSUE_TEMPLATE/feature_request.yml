@@ -1,0 +1,73 @@
+name: Feature request
+description: Proposer une amélioration ciblée
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème à résoudre
+      description: Décrire le besoin utilisateur plutôt qu’une implémentation imposée.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Solution proposée
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Périmètre
+      options:
+        - Pipeline Python
+        - API FastAPI
+        - Frontend
+        - Évaluation
+        - Documentation
+        - Packaging ou CI
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Système d’exploitation concerné
+      placeholder: "Windows, Linux, tous"
+  - type: input
+    id: python
+    attributes:
+      label: Version Python
+      placeholder: "3.12 ou 3.13"
+  - type: input
+    id: ffmpeg
+    attributes:
+      label: Version FFmpeg
+      placeholder: "Non applicable ou version"
+  - type: dropdown
+    id: vlm_mode
+    attributes:
+      label: Mode VLM concerné
+      options:
+        - manual
+        - disabled
+        - automatic / gemini
+        - tous
+        - non applicable
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Scénario ou étapes
+      description: Fournir un exemple reproductible sans données sensibles.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagées
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Confidentialité
+      options:
+        - label: Les exemples et logs éventuels sont nettoyés de toute donnée sensible.
+          required: true

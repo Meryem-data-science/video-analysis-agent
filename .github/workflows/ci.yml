@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            python: "3.12"
+          - os: windows-latest
+            python: "3.13"
+          - os: ubuntu-latest
+            python: "3.12"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+
+      - name: Installer le package et les outils
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[all,dev]"
+
+      - name: Vérifier les dépendances
+        run: python -m pip check
+
+      - name: Contrôler les fichiers publiables
+        run: python scripts/check_repository_hygiene.py
+
+      - name: Ruff
+        run: python -m ruff check .
+
+      - name: Tests
+        env:
+          VLM_MODE: manual
+        run: python -m pytest -p no:cacheprovider
+
+  frontend:
+    name: Frontend / Node 22
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Installer les dépendances frontend
+        working-directory: frontend
+        run: npm ci
+
+      - name: Tests frontend
+        working-directory: frontend
+        run: npm test
+
+      - name: TypeScript et build Vite
+        working-directory: frontend
+        run: npm run build

@@ -1,0 +1,30 @@
+{
+  "mode": "manual",
+  "provider": null,
+  "vlm_provider": null,
+  "audio_provider": null,
+  "gemini_vlm_model": "gemini-2.5-flash",
+  "gemini_text_model": "gemini-2.5-flash",
+  "model": "",
+  "input_policy": {
+    "use_motion_grid": true,
+    "use_motion_composite": true,
+    "use_selected_frames": true,
+    "use_transcript": true,
+    "max_frames_per_segment": 6
+  },
+  "output_policy": {
+    "require_json": true,
+    "include_confidence": true,
+    "include_uncertainties": true,
+    "no_hallucination": true
+  },
+  "notes": [
+    "Mode par défaut : manual. Les étapes locales et les prompts sont produits sans réseau.",
+    "disabled : produit les artefacts locaux et le pack, sans prompts ni appel VLM.",
+    "manual : produit le pack et les prompts, puis attend les JSON VLM manuels.",
+    "automatic : exige provider=gemini et GEMINI_API_KEY.",
+    "Aucun provider inconnu n'est converti silencieusement en Gemini.",
+    "Claude n'est pas implémenté à ce stade."
+  ]
+}
