@@ -16,10 +16,26 @@ Le mode `manual` est le mode par défaut : il prépare les packs et prompts sans
 SDK Gemini, clé API ou appel réseau. Gemini n'est ni gratuit par hypothèse, ni
 obligatoire ; il intervient uniquement en mode `automatic` explicitement configuré.
 
-> **Démonstration visuelle :** l’emplacement prévu est
-> `docs/demo/video-agent-demo.gif`. Aucun faux écran n’est publié : consultez le
-> [guide d’enregistrement](docs/demo/README.md) pour produire le GIF depuis
-> l’application réelle et le dataset synthétique.
+## État actuel
+
+La version `0.1.0` est un projet **alpha fonctionnel**, destiné à l'expérimentation
+locale et à la démonstration technique, pas un produit de production terminé.
+
+- le pipeline local, l'API FastAPI et l'interface React sont fonctionnels ;
+- `manual` est le mode par défaut et ne requiert aucun fournisseur cloud ;
+- `automatic` avec Gemini reste expérimental ;
+- la démonstration intégrée utilise une vidéo synthétique générée localement ;
+- ses résultats VLM sont des fixtures simulées, jamais des analyses réellement
+  produites par un modèle.
+
+## Limites connues
+
+- le fournisseur VLM automatique n'est pas encore stabilisé ;
+- la qualité des analyses sémantiques dépend du fournisseur et des prompts ;
+- la file de jobs est conservée uniquement en mémoire ;
+- le projet est principalement testé en environnement local ;
+- le benchmark publié utilise un dataset synthétique contrôlé et ne constitue
+  pas une mesure générale de performance ou de qualité.
 
 ## Démarrage rapide
 
@@ -43,9 +59,6 @@ Pour une présentation technique plus détaillée, voir le
 [portfolio du projet](docs/PORTFOLIO.md) et le
 [diagramme d’architecture](docs/ARCHITECTURE.md).
 
-> Le projet est en version alpha `0.1.0`. Les formats principaux sont testés, mais
-> les interfaces peuvent encore évoluer avant la version 1.0.
-
 ## Fonctionnalités
 
 - inspection FFprobe et stratégie d'analyse ;
@@ -68,7 +81,7 @@ Pour une présentation technique plus détaillée, voir le
 React / CLI / MCP → pipeline Python → outputs/runs/<run_id>/
                            ├─ disabled  → local_complete
                            ├─ manual    → awaiting_vlm → validation → rapport
-                           └─ automatic → Gemini explicite → validation → rapport
+                           └─ automatic expérimental → Gemini explicite → validation → rapport
 ```
 
 Le code applicatif se trouve dans `src/video_agent/`. Les scripts historiques de
@@ -284,10 +297,6 @@ Navigateur React/Vite
         → outputs/runs/<run_id>/
 ```
 
-Capture de démonstration : emplacement prévu dans
-`docs/screenshots/frontend-dashboard.png`.
-GIF de démonstration : emplacement prévu dans `docs/demo/video-agent-demo.gif`.
-
 ### Développement
 
 Prérequis frontend : Node.js 20.19+ ou 22.12+. Installer d'abord le backend
@@ -474,6 +483,11 @@ mais aucune analyse VLM n'est effectuée.
 
 ### Automatic avec Gemini
 
+Ce mode est **expérimental** dans `0.1.0`. Il exige une configuration explicite,
+peut dépendre des quotas et conditions du fournisseur, et n'offre pas encore de
+garantie de stabilité ou de qualité. Il n'est jamais requis pour les modes
+`manual` et `disabled`.
+
 ```console
 python -m pip install ".[gemini]"
 ```
@@ -549,11 +563,11 @@ python -m build
 
 La CI exécute ces contrôles sous Windows 3.12/3.13 et Linux 3.12.
 
-## Current limitations
+## Limites techniques détaillées
 
 - FFmpeg est une dépendance système, non installée par pip.
 - Les modèles Whisper sont téléchargés au premier usage selon le backend.
-- Gemini est le seul provider automatique implémenté.
+- Gemini est le seul provider automatique implémenté et reste expérimental.
 - Aucun verrou interprocessus ne sérialise encore deux exécutions simultanées du
   même `run_id`.
 - Les anciens dossiers `outputs/` ne sont pas migrés.
